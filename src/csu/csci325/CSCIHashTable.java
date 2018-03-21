@@ -150,17 +150,21 @@ public class CSCIHashTable<K, V> implements Map<K, V> {
     }
 
     public static void main(String[] args) {
+        System.out.println("Hash Table Library Test\nCreating empty table");
         Map<Integer, Student> studentMap = new CSCIHashTable<>();
+        System.out.println("Adding students");
         studentMap.put(1024, new Student("John"));
         studentMap.put(2048, new Student("Paul"));
         studentMap.put(4096, new Student("Luke"));
         studentMap.put(8192, new Student("Mark"));
         Collection<Student> st = studentMap.values();
         Iterator<Student> it = st.iterator();
+        System.out.println("Printing list of students:");
         while (it.hasNext()) {
             System.out.println(it.next().getFirstName());
         }
         System.out.println("-----------------------------------------");
+        System.out.println("Renaming Mark to Paul then printing list");
         studentMap.put(8192, new Student("Paul"));
         st = studentMap.values();
         it = st.iterator();
@@ -168,9 +172,13 @@ public class CSCIHashTable<K, V> implements Map<K, V> {
             System.out.println(it.next().getFirstName());
         }
         System.out.println("-----------------------------------------");
+        System.out.println("Printing name of student with id 1024 (John)");
         System.out.println(studentMap.get(1024).getFirstName());
+        System.out.println("Printing output of removing id not found (null)");
         System.out.println(studentMap.remove(100));
+        System.out.println("Printing name of student with id 8192 (Paul)");
         System.out.println(studentMap.get(8192).getFirstName());
+        System.out.println("Printing number of students in the table (4)");
         System.out.println(studentMap.size());
     }
 }
